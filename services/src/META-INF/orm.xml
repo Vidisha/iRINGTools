@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
+     http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+	version="2.0">
+	<package>org.iringtools.mapping</package>
+	<entity class="org.iringtools.mapping.TemplateMap">
+		<table name="Pattern" />
+		<attributes>
+			<id name="id">
+				<column name="Template_Id" />
+			</id>
+			<basic name="name">
+				<column name="Template_Name" />
+			</basic>
+			<basic name="type">
+				<column name="type" />
+			</basic>
+			<transient name="roleMaps" />
+		</attributes>
+	</entity>
+
+	<entity class="org.iringtools.mapping.Template">
+		<table name="Template" />
+		<attributes>
+			<id name="id">
+				<column name="Id" />
+			</id>
+			<basic name="name">
+				<column name="Name" />
+			</basic>
+			<basic name="type">
+				<column name="Type" />
+			</basic>
+			<basic name="rdlTemplateId">
+				<column name="RDL_Template_id" />
+			</basic>
+			<one-to-many name="roleid" mapped-by="templateId">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<one-to-many name="ordi" mapped-by="templateId">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<transient name="rolelist" />
+		</attributes>
+	</entity>
+
+	<entity class="org.iringtools.mapping.Classes">
+		<table name="Class" />
+		<attributes>
+			<id name="id">
+				<column name="Id" />
+			</id>
+			<basic name="name">
+				<column name="Name" />
+			</basic>
+			<basic name="rdlClassId">
+				<column name="RDL_Class_Id" />
+			</basic>
+			<one-to-many name="roleId" mapped-by="clazz">
+				<cascade>
+					<cascade-all/> 
+				</cascade>
+			</one-to-many>
+		</attributes>
+	</entity>
+
+	<entity class="org.iringtools.mapping.Role">
+		<table name="Role" />
+		<!--<id-class class="TipsPk" /> <attributes> <id name="pkOne"> <column 
+			name="Id" /> </id> <id name="pkTwo"> <column name="Template_Id" /> </id> -->
+		<id-class class="RolePk" />
+		<attributes>
+			<id name="id">
+				<column name="Id" />
+			</id>
+			<id name="templateId">
+				<column name="Template_Id" />
+			</id>
+			<basic name="name">
+				<column name="Name" />
+			</basic>
+			<basic name="rdlRoleId">
+				<column name="RDL_Role_Id" />
+			</basic>
+			<basic name="type">
+				<column name="Type" />
+			</basic>
+			<basic name="name">
+				<column name="Name" />
+			</basic>
+			<basic name="individual">
+				<column name="Individuals" />
+			</basic>
+			<basic name="clazz">
+				<column name="Class_Id" />
+			</basic>
+			<!--<one-to-many name="classId" mapped-by="id"> </one-to-many> -->
+			<transient name="classId" />
+			<transient name="classeslist" />
+		</attributes>
+	</entity>
+
+	<entity class="org.iringtools.mapping.Patterns">
+		<table name="Pattern" />
+		<attributes>
+			<id name="id">
+				<column name="Id" />
+			</id>
+			<basic name="name">
+				<column name="Name" />
+			</basic>
+			<basic name="typicalValue">
+				<column name="Typical_Value" />
+			</basic>
+			<basic name="tipId">
+				<column name="Tip_Id" />
+			</basic>
+			<one-to-many name="patternId" mapped-by="patternId">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<transient name="ord" />
+		</attributes>
+	</entity>
+	<entity class="org.iringtools.mapping.Ordinal">
+		<table name="Ordinal" />
+		<id-class class="OrdinalPk" />
+		<attributes>
+			<id name="patternId">
+				<column name="Pattern_Id" />
+			</id>
+			<id name="ordinal">
+				<column name="Ordinal" />
+			</id>
+			<basic name="templateId">
+				<column name="Template_Id" />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="org.iringtools.mapping.Commodity">
+		<table name="Commodity" />
+		<attributes>
+			<id name="id">
+				<column name="Id" />
+			</id>
+			<basic name="name">
+				<column name="Name" />
+			</basic>
+			<basic name="rdlClassId">
+				<column name="RDL_Class_ID" />
+			</basic>
+			<one-to-many name="commo" mapped-by="commodityId">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+		</attributes>
+	</entity>
+
+	<entity class="org.iringtools.mapping.CommodityTip">
+		<table name="Commodity_Tip" />
+		<id-class class="ComTipPk" />
+		<attributes>
+			<id name="tipId">
+				<column name="Tip_Id" />
+			</id>
+			<id name="commodityId">
+				<column name="Commodity_Id" />
+			</id>
+		</attributes>
+	</entity>
+
+	<entity class="org.iringtools.mapping.Tips">
+		<table name="Tip" />
+		<attributes>
+			<id name="id">
+				<column name="Id" />
+			</id>
+			<basic name="name">
+				<column name="Name" />
+			</basic>
+			<basic name="description">
+				<column name="Description" />
+			</basic>
+			<basic name="level">
+				<column name="Level" />
+			</basic>
+			<one-to-many name="patId" mapped-by="tipId">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+
+			<one-to-many name="commo" mapped-by="tipId">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-many>
+			<transient name="patt" />
+			<!-- <transient name="patternsList"/> <transient name="patId"/> -->
+		</attributes>
+	</entity>
+</entity-mappings>
+
+
+
+<!-- <entity class="org.iringtools.mapping.RoleMaps"> -->
+<!-- <attributes> -->
+<!-- <id name ="items" > -->
+<!-- </id> -->
+<!-- <one-to-many name="items" target-entity="org.iringtools.mapping.RoleMap" -->
+<!-- fetch="EAGER"> -->
+<!-- <join-table name="Role"> -->
+<!-- <join-column name="Seq_Role" /> -->
+<!-- <inverse-join-column name="Seq_Role" /> -->
+<!-- </join-table> -->
+<!-- <cascade> -->
+<!-- <cascade-remove /> -->
+<!-- </cascade> -->
+<!-- </one-to-many> -->
+<!-- -->
+<!-- </attributes> -->
+<!-- </entity> -->
+<!---->
+<!-- <entity class="org.iringtools.mapping.RoleMap"> <table name="Role" /> 
+	<attributes> <id name="id"> <column name="Role_Id" /> </id> <basic name="name"> 
+	<column name="Role_Name" /> </basic> <basic name="type"> <column name="Role_Type" 
+	/> </basic> <basic name="propertyName"> <column name="propertyName" /> </basic> 
+	<many-to-one name="id" fetch="EAGER"> <cascade> <cascade-all /> </cascade> 
+	</many-to-one> <one-to-many name="id" fetch="EAGER" mapped-by="Seq_Role" 
+	target-entity="org.iringtools.mapping.TemplateMap" > <join-table name="Role"> 
+	<join-column name="Seq_Role" /> <inverse-join-column name="Seq_Role" /> </join-table> 
+	<cascade> <cascade-remove /> </cascade> </one-to-many> <transient name="classMap"/> 
+	</attributes> </entity> -->

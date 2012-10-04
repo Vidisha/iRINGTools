@@ -1,0 +1,14 @@
+<exchangeDefinition xmlns="http://www.iringtools.org/directory">
+  <id>3</id>
+  <name>SPI.Handover_Instrument -> Inspec.INSTRUMENT</name>
+  <description>SPI.Handover_Instrument to Inspec.INSTRUMENT</description>
+  <sourceUri>https://api-staging.mypsn.com/apps/v2/irtsvc/adapter/chi/dxfr</sourceUri>
+  <sourceScopeName>25509</sourceScopeName>
+  <sourceAppName>SPI</sourceAppName>
+  <sourceGraphName>Handover_Instrument</sourceGraphName>
+  <targetUri>https://api-staging.mypsn.com/apps/v2/irtsvc-32/adapter/chi/dxfr</targetUri>
+  <targetScopeName>25509</targetScopeName>
+  <targetAppName>Inspec</targetAppName>
+  <targetGraphName>Instrument</targetGraphName>
+  <hashAlgorithm>MD5</hashAlgorithm>
+</exchangeDefinition>

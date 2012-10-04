@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<directory xmlns="http://www.iringtools.org/directory">
+  <scope>
+    <name>12345_000</name>
+    <applicationData>
+      <application>
+        <id>1</id>
+        <name>ABC</name>
+        <description>Test Application</description>
+        <baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc/adapter/chi/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>1</id>
+            <name>LINES</name>
+            <description>ABC Line List</description>
+            <commodity>PipingNetworkSystem</commodity>
+          </graph>
+        </graphs>
+      </application>
+      <application>
+        <id>2</id>
+        <name>DEF</name>
+        <description>Test Application</description>
+        <baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc/adapter/chi/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>2</id>
+            <name>LINES</name>
+            <description>DEF Line List</description>
+            <commodity>PipingNetworksSystem</commodity>
+          </graph>
+        </graphs>
+      </application>
+    </applicationData>
+    <dataExchanges>
+      <commodity>
+        <name>PipingNetworkSystem</name>
+        <exchanges>
+          <exchange>
+            <id>1</id>
+            <name>ABC.LINES -&gt; DEF.LINES</name>
+            <description>Line Exchange</description>
+          </exchange>
+          <exchange>
+            <id>2</id>
+            <name>DEF.LINES -&gt; ABC.LINES</name>
+            <description>Line Exchange</description>
+          </exchange>
+        </exchanges>
+      </commodity>
+    </dataExchanges>
+  </scope>
+   <scope>
+    <name>Pilot</name>
+    <applicationData>
+	  <application>
+        <id>3</id>
+        <name>Inspec</name>
+        <description>Test Application</description>
+        <!--<baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc-32/adapter/chi/dxfr</baseUri>-->
+		<!--<baseUri>http://ashst9598/services/dxfr</baseUri>-->
+		<baseUri>https://api-staging.mypsn.com/apps/v2/iringtools-32/adapter/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>3</id>
+            <name>EquipmentList</name>
+            <description>Equipment List</description>
+            <commodity>EquipmentList</commodity>
+          </graph>
+          <graph>
+            <id>4</id>
+            <name>InstrumentList</name>
+            <description>Instrument List</description>
+            <commodity>InstrumentList</commodity>
+          </graph>
+        </graphs>
+      </application>
+    </applicationData>
+    <dataExchanges>
+      <commodity>
+        <name>Equipment2Instrument</name>
+        <exchanges>
+          <exchange>
+            <id>3</id>
+            <name>Inspec.Equipment -&gt; Inspec.Instrument</name>
+            <description>Inspec Exchange</description>
+          </exchange>
+		</exchanges>
+      </commodity>
+      <commodity>
+        <name>Inspect2TeamWorks</name>
+        <exchanges>
+          <exchange>
+            <id>4</id>
+            <name>Inspec.Equipment -&gt; TeamWorks.Instrument</name>
+            <description>Send Inspec.Equipment to TeamWorks.Instrument</description>
+          </exchange>
+		</exchanges>
+      </commodity>
+    </dataExchanges>
+  </scope>
+  <scope>
+    <name>power_test</name>
+    <applicationData>	  
+	  <application>
+        <id>5</id>
+        <name>Construction</name>
+        <description>Test Application</description>
+        <!--<baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc-32/adapter/chi/dxfr</baseUri>-->
+		<!--<baseUri>http://ashst9598/services/dxfr</baseUri>-->
+		<baseUri>https://api-staging.mypsn.com/apps/v2/iringtools-32/adapter/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>5</id>
+            <name>EquipmentList</name>
+            <description>Equipment List</description>
+            <commodity>EquipmentList</commodity>
+          </graph>
+        </graphs>
+      </application>
+    </applicationData>
+    <dataExchanges/>
+  </scope>
+   <scope>
+    <name>Demo1</name>
+    <applicationData>
+      <application>
+        <id>1</id>
+        <name>ABC</name>
+        <description>Test Application</description>
+        <baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc/adapter/chi/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>1</id>
+            <name>line</name>
+            <description>ABC Line List</description>
+            <commodity>PIPING NETWORK SEGMENT</commodity>
+          </graph>
+        </graphs>
+      </application>
+      <application>
+        <id>2</id>
+        <name>DEF</name>
+        <description>Test Application</description>
+        <baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc/adapter/chi/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>2</id>
+            <name>line</name>
+            <description>DEF Line List</description>
+            <commodity>PIPING NETWORK SEGMENT</commodity>
+          </graph>
+        </graphs>
+      </application>
+    </applicationData>
+    <dataExchanges>
+      <commodity>
+        <name>PIPING NETWORK SEGMENT</name>
+        <exchanges>
+          <exchange>
+            <id>1</id>
+            <name>ABC.line -&gt; DEF.line</name>
+            <description>Line Exchange</description>
+          </exchange>
+          <exchange>
+            <id>2</id>
+            <name>DEF.line -&gt; ABC.line</name>
+            <description>Line Exchange</description>
+          </exchange>
+        </exchanges>
+      </commodity>
+    </dataExchanges>
+  </scope>
+  <scope>
+    <name>25509</name>
+    <applicationData>
+      <application>
+        <id>1</id>
+        <name>SPI</name>
+        <description>SmartPlant Instrumentation</description>
+        <baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc/adapter/chi/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>1</id>
+            <name>Handover_Instrument</name>
+            <description>Instrument List</description>
+            <commodity>INSTRUMENT</commodity>
+          </graph>
+        </graphs>
+      </application>
+      <application>
+        <id>2</id>
+        <name>Inspec</name>
+        <description>Inspec</description>
+        <baseUri>https://api-staging.mypsn.com/apps/v2/irtsvc-32/adapter/chi/dxfr</baseUri>
+        <graphs>
+          <graph>
+            <id>2</id>
+            <name>Instrument</name>
+            <description>Instrument List</description>
+            <commodity>Instrument</commodity>
+          </graph>
+        </graphs>
+      </application>
+    </applicationData>
+    <dataExchanges>
+      <commodity>
+        <name>INSTRUMENT</name>
+        <exchanges>
+          <exchange>
+            <id>1</id>
+            <name>SPI.Handover_Instrument -&gt; Inspec.Instrument</name>
+            <description>Instrument Exchange</description>
+          </exchange>
+        </exchanges>
+      </commodity>
+    </dataExchanges>
+  </scope>
+</directory>
